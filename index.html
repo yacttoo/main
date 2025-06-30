@@ -12,10 +12,10 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Georgia', serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #2c3e50;
+            background: #ffffff;
             overflow-x: hidden;
         }
 
@@ -27,14 +27,14 @@
 
         /* Header Styles */
         header {
-            background: rgba(241, 4, 4, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             padding: 1rem 0;
-            transition: background 0.3s ease;
+            border-bottom: 1px solid #e8e8e8;
         }
 
         nav {
@@ -43,43 +43,143 @@
             align-items: center;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+        }
+
+        .language-current {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .language-current:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+
+        .language-text {
+            color: #2c3e50;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .language-arrow {
+            color: #2c3e50;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .language-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .language-option:last-child {
+            border-bottom: none;
+        }
+
+        .language-option:hover {
+            background: #f8f9fa;
+        }
+
+        .language-option.active {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .language-option-text {
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        .language-option.active .language-option-text {
+            color: #1976d2;
+            font-weight: 500;
+        }
+
         .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #2c3e50;
             text-decoration: none;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            letter-spacing: 2px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
-            color: #fff;
+            color: #2c3e50;
             text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            font-weight: 300;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-bottom-color: #34495e;
         }
 
         .nav-toggle {
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: #2c3e50;
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -87,7 +187,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
                         url('https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-38.jpg');
             background-size: cover;
             background-position: center;
@@ -99,148 +199,250 @@
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-weight: 300;
+            letter-spacing: 3px;
         }
 
         .hero-content p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            font-weight: 300;
+            opacity: 0.9;
         }
 
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background: linear-gradient(45deg, #4fc3f7, #29b6f6);
+            background: transparent;
             color: white;
             text-decoration: none;
-            border-radius: 50px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-weight: bold;
+            border: 2px solid white;
+            font-weight: 300;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(79, 195, 247, 0.4);
+            background: white;
+            color: #2c3e50;
         }
 
         /* Section Styles */
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
             background: white;
         }
 
         .section:nth-child(even) {
-            background: #f8f9fa;
+            background: #fafafa;
         }
 
         .section-title {
             text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            color: #1e3c72;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: #2c3e50;
+            font-weight: 300;
+            letter-spacing: 2px;
         }
 
         .about-text {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.8;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            text-align: center;
+            text-align: justify;
+            color: #34495e;
         }
 
         .about-text p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         /* Specifications Grid */
         .specs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .spec-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2.5rem 2rem;
+            border: 1px solid #e8e8e8;
             text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .spec-card:hover {
-            transform: translateY(-10px);
         }
 
         .spec-card h3 {
-            color: #1e3c72;
+            color: #2c3e50;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
         }
 
         .spec-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #4fc3f7;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #34495e;
             margin-bottom: 0.5rem;
+        }
+
+        .spec-card p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Load More Button */
+        .specs-actions {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .load-more-btn {
+            padding: 12px 30px;
+            background: transparent;
+            color: #2c3e50;
+            border: 2px solid #2c3e50;
+            font-weight: 300;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+        }
+
+        .load-more-btn:hover {
+            background: #2c3e50;
+            color: white;
+        }
+
+        /* Detailed Specifications */
+        .detailed-specs {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease-out, opacity 0.4s ease;
+            opacity: 0;
+            margin-top: 3rem;
+        }
+
+        .detailed-specs.active {
+            max-height: 5000px;
+            opacity: 1;
+        }
+
+        .detailed-specs-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .specs-section {
+            background: white;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e8e8e8;
+            overflow: hidden;
+        }
+
+        .specs-section h4 {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #2c3e50;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .specs-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .specs-row:last-child {
+            border-bottom: none;
+        }
+
+        .specs-label {
+            font-weight: 400;
+            color: #34495e;
+            min-width: 200px;
+        }
+
+        .specs-value {
+            font-weight: 300;
+            color: #2c3e50;
+            text-align: right;
         }
 
         /* Gallery Styles */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
         }
 
         .gallery-item {
-            position: relative;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
             cursor: pointer;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
+            border: 1px solid #e8e8e8;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
             display: block;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s ease;
         }
 
         .gallery-item:hover img {
             transform: scale(1.05);
         }
 
-        .gallery-overlay {
-            display: none !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-        }
-
         /* Footer */
         footer {
-            background: #1e3c72;
+            background: #2c3e50;
             color: white;
-            text-align: center;
-            padding: 3rem 0;
+            padding: 4rem 0 2rem 0;
         }
 
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .contact-info p {
+            line-height: 1.8;
+            color: #bdc3c7;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #95a5a6;
+            font-size: 0.9rem;
         }
 
         /* Lightbox */
@@ -255,14 +457,88 @@
             align-items: center;
             justify-content: center;
             z-index: 10000;
-            cursor: pointer;
+        }
+
+        .lightbox-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
 
         .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            max-width: 85%;
+            max-height: 85%;
+            cursor: default;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
         }
 
         /* Mobile Styles */
@@ -272,7 +548,7 @@
             }
             
             .hero-content p {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
             
             .nav-links {
@@ -281,10 +557,11 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: rgba(241, 4, 4, 0.95);
+                background: rgba(255, 255, 255, 0.98);
                 flex-direction: column;
-                padding: 1rem;
-                gap: 1rem;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-top: 1px solid #e8e8e8;
             }
 
             .nav-links.active {
@@ -300,13 +577,39 @@
             }
 
             .specs-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
             }
 
             .gallery {
                 grid-template-columns: 1fr;
                 gap: 1rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .lightbox-prev {
+                left: 15px;
+            }
+
+            .lightbox-next {
+                right: 15px;
+            }
+
+            .lightbox-close {
+                top: 15px;
+                right: 15px;
+                width: 35px;
+                height: 35px;
             }
         }
     </style>
@@ -314,44 +617,78 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">Princess Too</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#specifications">Specifications</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle">☰</button>
+            <a href="#" class="logo">PRINCESS TOO</a>
+            <div class="nav-right">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#overview" data-translate="nav_overview">Overview</a></li>
+                    <li><a href="#specifications" data-translate="nav_specifications">Specifications</a></li>
+                    <li><a href="#gallery" data-translate="nav_gallery">Gallery</a></li>
+                    <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+                </ul>
+                
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <div class="language-current" id="languageCurrent">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDEyMzY5Ii8+CjxyZWN0IHk9IjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB5PSIxMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IiNDRTExMjYiLz4KPC9zdmc+" alt="English" class="language-flag">
+                        <span class="language-text">EN</span>
+                        <span class="language-arrow">▼</span>
+                    </div>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option active" data-lang="en">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDEyMzY5Ii8+CjxyZWN0IHk9IjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB5PSIxMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IiNDRTExMjYiLz4KPC9zdmc+" alt="English" class="language-flag">
+                            <span class="language-option-text">English</span>
+                        </div>
+                        <div class="language-option" data-lang="ru">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHk9IjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiBmaWxsPSIjMDA1MkI0Ii8+CjxyZWN0IHk9IjEwIiB3aWR0aD0iMjAiIGhlaWdodD0iNSIgZmlsbD0iI0Q1MjgxOCIvPgo8L3N2Zz4=" alt="Russian" class="language-flag">
+                            <span class="language-option-text">Русский</span>
+                        </div>
+                        <div class="language-option" data-lang="de">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IiMwMDAiLz4KPHJlY3QgeT0iNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IiNERAAwMDAiLz4KPHJlY3QgeT0iMTAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiBmaWxsPSIjRkZEOTAwIi8+Cjwvc3ZnPg==" alt="German" class="language-flag">
+                            <span class="language-option-text">Deutsch</span>
+                        </div>
+                        <div class="language-option" data-lang="es">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjMiIGZpbGw9IiNEUzI4MTgiLz4KPHJlY3QgeT0iMyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjkiIGZpbGw9IiNGRkRBMDAiLz4KPHJlY3QgeT0iMTIiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzIiBmaWxsPSIjRDUyODE4Ii8+Cjwvc3ZnPg==" alt="Spanish" class="language-flag">
+                            <span class="language-option-text">Español</span>
+                        </div>
+                        <div class="language-option" data-lang="hi">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IiNGRjk5MzMiLz4KPHJlY3QgeT0iNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHk9IjEwIiB3aWR0aD0iMjAiIGhlaWdodD0iNSIgZmlsbD0iIzEzOEEwOCIvPgo8L3N2Zz4=" alt="Hindi" class="language-flag">
+                            <span class="language-option-text">हिन्दी</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="nav-toggle" id="navToggle">☰</button>
+            </div>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Princess Too</h1>
-            <p>Luxury Feadship Motor Yacht - 47.55m of Pure Elegance</p>
-            <a href="#overview" class="btn">Discover More</a>
+            <h1 data-translate="hero_title">PRINCESS TOO</h1>
+            <p data-translate="hero_subtitle">47.55m Feadship Motor Yacht</p>
+            <a href="#overview" class="btn" data-translate="hero_button">View Details</a>
         </div>
     </section>
 
     <section id="overview" class="section">
         <div class="container">
-            <h2 class="section-title">About Princess Too</h2>
+            <h2 class="section-title" data-translate="overview_title">Overview</h2>
             <div class="about-text">
-                <p>Princess Too is a magnificent 47.55-meter luxury motor yacht built by the prestigious Dutch shipyard Feadship in 1999. This exceptional vessel represents the pinnacle of yacht craftsmanship, featuring exterior design by the renowned De Voogt Naval Architects and interior design by the acclaimed Sam Sorgiovanni.</p>
+                <p data-translate="overview_p1">Princess Too is a distinguished 47.55-meter luxury motor yacht built by the renowned Dutch shipyard Feadship in 1999. This exceptional vessel represents the pinnacle of yacht craftsmanship, featuring exterior design by De Voogt Naval Architects and interior design by Sam Sorgiovanni.</p>
                 
-                <p>Originally known as Excellence II, Princess Too underwent significant refits in 2006, 2014, and 2017, ensuring she maintains the highest standards of luxury and performance. With her steel hull and aluminum superstructure, she offers both elegance and durability for the most discerning yacht enthusiasts.</p>
+                <p data-translate="overview_p2">Originally known as Excellence II, Princess Too has undergone comprehensive refits in 2006, 2014, and 2017, ensuring she maintains the highest standards of luxury and performance. With her steel hull and aluminum superstructure, she offers both elegance and durability for discerning yacht enthusiasts.</p>
                 
-                <p>The yacht can accommodate up to 12 guests in 6 luxurious suites, including a master stateroom with Jacuzzi, one VIP cabin, and four twin guest cabins. A professional crew of 10 ensures an unparalleled level of service throughout your voyage.</p>
+                <p data-translate="overview_p3">The yacht accommodates up to 12 guests in 6 luxurious suites, including a master stateroom with Jacuzzi, one VIP cabin, and four twin guest cabins. A professional crew of 10 ensures an exceptional level of service throughout your voyage.</p>
             </div>
         </div>
     </section>
 
     <section id="specifications" class="section">
         <div class="container">
-            <h2 class="section-title">Specifications</h2>
+            <h2 class="section-title" data-translate="specs_title">Specifications</h2>
             <div class="specs-grid">
                 <div class="spec-card">
-                    <h3>Length</h3>
+                    <h3>Length Overall</h3>
                     <div class="spec-value">47.55m</div>
                     <p>156'1" feet</p>
                 </div>
@@ -371,7 +708,7 @@
                     <p>GT</p>
                 </div>
                 <div class="spec-card">
-                    <h3>Max Speed</h3>
+                    <h3>Maximum Speed</h3>
                     <div class="spec-value">15.5</div>
                     <p>knots</p>
                 </div>
@@ -391,7 +728,7 @@
                     <p>liters</p>
                 </div>
                 <div class="spec-card">
-                    <h3>Guests</h3>
+                    <h3>Guest Capacity</h3>
                     <div class="spec-value">12</div>
                     <p>in 6 suites</p>
                 </div>
@@ -401,14 +738,195 @@
                     <p>professional crew</p>
                 </div>
                 <div class="spec-card">
-                    <h3>Built</h3>
+                    <h3>Year Built</h3>
                     <div class="spec-value">1999</div>
                     <p>Feadship</p>
                 </div>
                 <div class="spec-card">
                     <h3>Last Refit</h3>
-                    <div class="spec-value">2021</div>
+                    <div class="spec-value">2017</div>
                     <p>Complete renovation</p>
+                </div>
+            </div>
+            
+            <div class="specs-actions">
+                <button class="load-more-btn" id="loadMoreSpecs" data-translate="load_more_specs">Load More Specifications</button>
+            </div>
+
+            <!-- Detailed Specifications (Hidden by default) -->
+            <div class="detailed-specs" id="detailedSpecs">
+                <h3 class="detailed-specs-title">Princess Too Yacht Specifications</h3>
+                
+                <div class="specs-section">
+                    <h4>Dimensions</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Overall Length</span>
+                        <span class="specs-value">47.55 m</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Beam</span>
+                        <span class="specs-value">8.9 m</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Draught Max.</span>
+                        <span class="specs-value">2.9 m</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Gross Tonnage</span>
+                        <span class="specs-value">552</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Build</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Builder</span>
+                        <span class="specs-value">Feadship</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Port</span>
+                        <span class="specs-value">Kaag</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Country</span>
+                        <span class="specs-value">Netherlands</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Year</span>
+                        <span class="specs-value">1999</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Material</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Hull</span>
+                        <span class="specs-value">Steel</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Superstructure</span>
+                        <span class="specs-value">Aluminium</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Design</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Naval</span>
+                        <span class="specs-value">De Voogt Naval Architects</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Exterior</span>
+                        <span class="specs-value">De Voogt Naval Architects, Sam Sorgiovanni Designs P/L</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Interior</span>
+                        <span class="specs-value">Sam Sorgiovanni Designs P/L</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Vessel Details</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Previous Names</span>
+                        <span class="specs-value">Princess K, D'Natalin II, Excellence II, Princess K II</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Type</span>
+                        <span class="specs-value">Motor</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Sub Types</span>
+                        <span class="specs-value">N/A</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Class</span>
+                        <span class="specs-value">RINA</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Hull Type</span>
+                        <span class="specs-value">Mono Hull</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Hull Configuration</span>
+                        <span class="specs-value">Displacement</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Accommodation</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Number of Guests</span>
+                        <span class="specs-value">12</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Number of Crew</span>
+                        <span class="specs-value">10</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Performance & Capabilities</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Max. Speed</span>
+                        <span class="specs-value">14.6 kn</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Cruise Speed</span>
+                        <span class="specs-value">13.5 kn</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Speed/Range</span>
+                        <span class="specs-value">4500 n/M</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Fuel Capacity</span>
+                        <span class="specs-value">68,000 L</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Water Capacity</span>
+                        <span class="specs-value">21,500 L</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Propulsion</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Type</span>
+                        <span class="specs-value">Propellers</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Count</span>
+                        <span class="specs-value">2</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Engines</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Manufacturer</span>
+                        <span class="specs-value">Caterpillar Inc</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Model</span>
+                        <span class="specs-value">3508B DITA</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Type</span>
+                        <span class="specs-value">Diesel</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Power</span>
+                        <span class="specs-value">675 kW | 905 HP</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Count</span>
+                        <span class="specs-value">2</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Total Power Output</span>
+                        <span class="specs-value">1,350 kW | 1,810 HP</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -416,130 +934,138 @@
 
     <section id="gallery" class="section">
         <div class="container">
-            <h2 class="section-title">Gallery</h2>
+            <h2 class="section-title" data-translate="gallery_title">Gallery</h2>
             <div class="gallery">
                 <div class="gallery-item">
                     <img src="https://static.vesselfinder.net/ship-photo/1006362-248456000-0ceb20c7d3f85d3ae489050b73ff2c6a/1?v1" alt="Princess Too Profile View">
-                    <div class="gallery-overlay">Princess Too Profile View</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-38.jpg" alt="Princess Too Exterior">
-                    <div class="gallery-overlay">Elegant Exterior Design</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-40.jpg" alt="Princess Too Upper Deck">
-                    <div class="gallery-overlay">Upper Deck Areas</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-55.jpg" alt="Princess Too Interior">
-                    <div class="gallery-overlay">Luxurious Interior</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-58.jpg" alt="Princess Too Salon">
-                    <div class="gallery-overlay">Main Salon</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-67.jpg" alt="Princess Too Dining">
-                    <div class="gallery-overlay">Formal Dining Area</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-68.jpg" alt="Princess Too Galley">
-                    <div class="gallery-overlay">Professional Galley</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-79.jpg" alt="Princess Too Master Suite">
-                    <div class="gallery-overlay">Master Suite</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-140.jpg" alt="Princess Too Guest Cabin">
-                    <div class="gallery-overlay">Guest Accommodation</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-116.jpg" alt="Princess Too Bathroom">
-                    <div class="gallery-overlay">Luxury Bathroom</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-203.jpg" alt="Princess Too Deck">
-                    <div class="gallery-overlay">Outdoor Deck Space</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-180.jpg" alt="Princess Too Bridge">
-                    <div class="gallery-overlay">Navigation Bridge</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-205.jpg" alt="Princess Too Entertainment">
-                    <div class="gallery-overlay">Entertainment Area</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-204.jpg" alt="Princess Too Lounge">
-                    <div class="gallery-overlay">Sky Lounge</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-167.jpg" alt="Princess Too Tender">
-                    <div class="gallery-overlay">Tender & Water Toys</div>
                 </div>
                 
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B48m-Yacht-PRINCESS-TOO%5D-8799-142.jpg" alt="Princess Too Details">
-                    <div class="gallery-overlay">Luxury Details</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B47m-Yacht-PRINCESS-TOO%5D-895-159.jpg" alt="Princess Too Tender">
-                    <div class="gallery-overlay">Tender</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B47m-Yacht-PRINCESS-TOO%5D-895-182.jpg" alt="Princess Too at Anchor">
-                    <div class="gallery-overlay">At Anchor</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/Yacht%20PRINCESS%20TOO%20by%20Feadship%20-%20Detail.jpg" alt="Princess Too Detail by Feadship">
-                    <div class="gallery-overlay">Feadship Detail</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B47m-Yacht-PRINCESS-TOO%5D-895-157.jpg" alt="Princess Too Side View">
-                    <div class="gallery-overlay">Side View</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts/6masterbathdenat.jpg" alt="Princess Too Master Bath">
-                    <div class="gallery-overlay">Master Bath</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B47m-Yacht-PRINCESS-TOO%5D-895-100.jpg" alt="Princess Too Guest Suite">
-                    <div class="gallery-overlay">Guest Suite</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B47m-Yacht-PRINCESS-TOO%5D-895-10.jpg" alt="Princess Too Dining Area">
-                    <div class="gallery-overlay">Dining Area</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B47m-Yacht-PRINCESS-TOO%5D-895-103.jpg" alt="Princess Too Lounge">
-                    <div class="gallery-overlay">Lounge</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B47m-Yacht-PRINCESS-TOO%5D-895-38.jpg" alt="Princess Too Deck View">
-                    <div class="gallery-overlay">Deck View</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/%5B47m-Yacht-PRINCESS-TOO%5D-895-145.jpg" alt="Princess Too Sun Deck">
-                    <div class="gallery-overlay">Sun Deck</div>
                 </div>
+                
                 <div class="gallery-item">
                     <img src="https://www.charterworld.com/images/yachts-8/Yacht%20PRINCESS%20TOO%20by%20Feadship%20-%20Sundeck.jpg" alt="Princess Too Sundeck by Feadship">
-                    <div class="gallery-overlay">Sundeck by Feadship</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://yachtharbour.com/static/uploads/scale_1075_8fa64.jpg" alt="Princess Too Yacht Harbour View">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://yachtharbour.com/static/uploads/scale_1075_7780b.jpg" alt="Princess Too Additional View">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://yachtharbour.com/static/uploads/scale_1075_80b60.jpg" alt="Princess Too Exterior Profile">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://yachtharbour.com/static/uploads/scale_1075_31e01.jpg" alt="Princess Too Deck Detail">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://yachtharbour.com/static/uploads/scale_1075_261ca.jpg" alt="Princess Too Side Profile">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://yachtharbour.com/static/uploads/scale_1075_801db.jpg" alt="Princess Too Complete View">
                 </div>
             </div>
         </div>
@@ -547,90 +1073,45 @@
 
     <footer id="contact">
         <div class="container">
-            <h2 class="section-title" style="color: white; margin-bottom: 2rem;">Contact Information</h2>
+            <h2 class="section-title" style="color: white; margin-bottom: 3rem;">Contact</h2>
             <div class="contact-info">
                 <div>
                     <h3>Charter Inquiries</h3>
-                    <p>For charter availability and rates, please contact your preferred yacht charter broker.</p>
+                    <p>For charter availability and rates, please contact your preferred yacht charter broker or management company.</p>
                 </div>
                 <div>
-                    <h3>Specifications</h3>
+                    <h3>Vessel Information</h3>
                     <p>Built: 1999 | Last Refit: 2017<br>
                     Builder: Feadship, Netherlands<br>
-                    Classification: Lloyd's Register</p>
+                    Classification: Lloyd's Register<br>
+                    Flag: Cayman Islands</p>
                 </div>
                 <div>
-                    <h3>Design Team</h3>
-                    <p>George M<br>
-                       Nikita H<br>
-                    </p>
+                    <h3>Design</h3>
+                    <p>Naval Architecture: De Voogt Naval Architects<br>
+                    Interior Design: Sam Sorgiovanni<br>
+                    Exterior Styling: De Voogt</p>
                 </div>
             </div>
-            <hr style="margin: 2rem 0; border: 1px solid #4fc3f7;">
-            <p>&copy; 2024 Princess Too Yacht. All rights reserved. This website is for informational purposes only.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Princess Too. All rights reserved. This website is for informational purposes only.</p>
+            </div>
         </div>
     </footer>
 
     <div class="lightbox" id="lightbox">
-        <img id="lightboxImg" src="" alt="">
+        <div class="lightbox-container">
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+            <img id="lightboxImg" src="" alt="">
+            <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+            <button class="lightbox-close" id="lightboxClose">×</button>
+            <div class="lightbox-counter" id="lightboxCounter">1 / 32</div>
+        </div>
     </div>
 
     <script>
-        // DOM Content Loaded
         document.addEventListener('DOMContentLoaded', function() {
             
-            // Load uploaded yacht images
-            async function loadYachtImages() {
-                try {
-                    // Try to load uploaded images if available
-                    const image1Data = await window.fs.readFile('Image 1:');
-                    const image1Blob = new Blob([image1Data], { type: 'image/jpeg' });
-                    const image1URL = URL.createObjectURL(image1Blob);
-                    
-                    const image2Data = await window.fs.readFile('Image 2:');
-                    const image2Blob = new Blob([image2Data], { type: 'image/jpeg' });
-                    const image2URL = URL.createObjectURL(image2Blob);
-                    
-                    const image3Data = await window.fs.readFile('Image 3:');
-                    const image3Blob = new Blob([image3Data], { type: 'image/jpeg' });
-                    const image3URL = URL.createObjectURL(image3Blob);
-                    
-                    const image4Data = await window.fs.readFile('Image 4:');
-                    const image4Blob = new Blob([image4Data], { type: 'image/jpeg' });
-                    const image4URL = URL.createObjectURL(image4Blob);
-                    
-                    const image5Data = await window.fs.readFile('Image 5:');
-                    const image5Blob = new Blob([image5Data], { type: 'image/jpeg' });
-                    const image5URL = URL.createObjectURL(image5Blob);
-                    
-                    // Update hero background with uploaded aerial view
-                    const heroStyle = document.createElement('style');
-                    heroStyle.textContent = `
-                        .hero {
-                            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                                        url('${image4URL}') !important;
-                            background-size: cover !important;
-                            background-position: center !important;
-                        }
-                    `;
-                    document.head.appendChild(heroStyle);
-                    
-                    // Update first 5 gallery images with uploaded photos
-                    const galleryImages = document.querySelectorAll('.gallery img');
-                    if (galleryImages[0]) galleryImages[0].src = image1URL;
-                    if (galleryImages[1]) galleryImages[1].src = image2URL;
-                    if (galleryImages[2]) galleryImages[2].src = image3URL;
-                    if (galleryImages[3]) galleryImages[3].src = image4URL;
-                    if (galleryImages[4]) galleryImages[4].src = image5URL;
-                    
-                    console.log('✅ Uploaded Princess Too yacht images loaded successfully!');
-                    
-                } catch (error) {
-                    console.log('📷 Using official Princess Too yacht photos from CharterWorld & VesselFinder');
-                    // The actual Princess Too images are already set in the HTML
-                }
-            }
-
             // Mobile navigation toggle
             const navToggle = document.getElementById('navToggle');
             const navLinks = document.getElementById('navLinks');
@@ -640,7 +1121,6 @@
                     navLinks.classList.toggle('active');
                 });
 
-                // Close mobile menu when clicking on a link
                 navLinks.addEventListener('click', function(e) {
                     if (e.target.tagName === 'A') {
                         navLinks.classList.remove('active');
@@ -648,70 +1128,6 @@
                 });
             }
 
-            // ULTIMATE RED COLOR DESTROYER - ZERO TOLERANCE FOR RED
-            function destroyAllRedColors() {
-                const header = document.querySelector('header');
-                if (header) {
-                    // Nuclear approach - remove ALL style attributes
-                    header.removeAttribute('style');
-                    header.style.cssText = '';
-                    
-                    // Force gray liquid glass design ONLY
-                    const grayGradient = 'linear-gradient(135deg, rgba(200, 200, 200, 0.25) 0%, rgba(150, 150, 150, 0.15) 50%, rgba(180, 180, 180, 0.2) 100%)';
-                    
-                    // Apply styles with maximum priority
-                    header.style.setProperty('background', grayGradient, 'important');
-                    header.style.setProperty('background-color', 'rgba(180, 180, 180, 0.2)', 'important');
-                    header.style.setProperty('backdrop-filter', 'blur(25px) saturate(180%)', 'important');
-                    header.style.setProperty('-webkit-backdrop-filter', 'blur(25px) saturate(180%)', 'important');
-                    header.style.setProperty('box-shadow', '0 8px 32px rgba(0, 0, 0, 0.1)', 'important');
-                    header.style.setProperty('border-bottom', '1px solid rgba(255, 255, 255, 0.3)', 'important');
-                    header.style.setProperty('position', 'fixed', 'important');
-                    header.style.setProperty('width', '100%', 'important');
-                    header.style.setProperty('top', '0', 'important');
-                    header.style.setProperty('z-index', '1000', 'important');
-                    header.style.setProperty('padding', '1rem 0', 'important');
-                    header.style.setProperty('transition', 'none', 'important');
-                    
-                    // Remove any classes that might trigger red
-                    header.classList.remove('scrolled', 'active');
-                    header.classList.add('gray-only', 'no-red-ever', 'liquid-glass-locked');
-                    
-                    // Block any inline styles that contain red
-                    if (header.getAttribute('style') && header.getAttribute('style').includes('red')) {
-                        header.removeAttribute('style');
-                    }
-                    if (header.getAttribute('style') && header.getAttribute('style').includes('241')) {
-                        header.removeAttribute('style');
-                    }
-                }
-            }
-
-            // NUCLEAR ANTI-RED SYSTEM - Run every millisecond
-            destroyAllRedColors();
-            
-            // Override ALL possible scroll events
-            window.addEventListener('scroll', destroyAllRedColors, true);
-            window.addEventListener('scroll', destroyAllRedColors, false);
-            document.addEventListener('scroll', destroyAllRedColors, true);
-            document.addEventListener('scroll', destroyAllRedColors, false);
-            
-            // Override other events
-            window.addEventListener('load', destroyAllRedColors);
-            window.addEventListener('resize', destroyAllRedColors);
-            document.addEventListener('DOMContentLoaded', destroyAllRedColors);
-            window.addEventListener('beforeunload', destroyAllRedColors);
-            
-            // Maximum frequency checker - every 0.5ms
-            setInterval(destroyAllRedColors, 0.5);
-            
-            // Additional protection with requestAnimationFrame
-            function animationFrameChecker() {
-                destroyAllRedColors();
-                requestAnimationFrame(animationFrameChecker);
-            }
-            requestAnimationFrame(animationFrameChecker);
-            
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -726,58 +1142,324 @@
                 });
             });
 
-            // Header background on scroll
-            window.addEventListener('scroll', () => {
-                const header = document.querySelector('header');
-                if (window.scrollY > 100) {
-                    header.style.background = 'rgba(200, 4, 4, 0.95)';
-                } else {
-                    header.style.background = 'rgba(241, 4, 4, 0.9)';
-                }
-            });
-
-            // Gallery lightbox
+            // Gallery lightbox with navigation
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
-            
-            document.querySelectorAll('.gallery-item img').forEach(img => {
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            const galleryImages = document.querySelectorAll('.gallery-item img');
+            let currentImageIndex = 0;
+
+            // Create array of image sources and alts
+            const imageData = Array.from(galleryImages).map(img => ({
+                src: img.src,
+                alt: img.alt
+            }));
+
+            function showLightboxImage(index) {
+                if (index >= 0 && index < imageData.length) {
+                    currentImageIndex = index;
+                    lightboxImg.src = imageData[index].src;
+                    lightboxImg.alt = imageData[index].alt;
+                    lightboxCounter.textContent = `${index + 1} / ${imageData.length}`;
+                }
+            }
+
+            function nextImage() {
+                const nextIndex = (currentImageIndex + 1) % imageData.length;
+                showLightboxImage(nextIndex);
+            }
+
+            function prevImage() {
+                const prevIndex = (currentImageIndex - 1 + imageData.length) % imageData.length;
+                showLightboxImage(prevIndex);
+            }
+
+            // Open lightbox when clicking on gallery images
+            galleryImages.forEach((img, index) => {
                 img.addEventListener('click', function() {
-                    lightboxImg.src = this.src;
+                    showLightboxImage(index);
                     lightbox.style.display = 'flex';
                 });
             });
 
-            if (lightbox) {
-                lightbox.addEventListener('click', () => {
-                    lightbox.style.display = 'none';
-                });
-            }
-
-            // Animate elements on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all animated elements
-            document.querySelectorAll('.spec-card, .gallery-item').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
+            // Navigation controls
+            lightboxNext.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextImage();
             });
 
-            // Load the yacht images
-            loadYachtImages();
+            lightboxPrev.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevImage();
+            });
+
+            lightboxClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                lightbox.style.display = 'none';
+            });
+
+            // Close lightbox when clicking on background
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (lightbox.style.display === 'flex') {
+                    switch(e.key) {
+                        case 'ArrowRight':
+                            nextImage();
+                            break;
+                        case 'ArrowLeft':
+                            prevImage();
+                            break;
+                        case 'Escape':
+                            lightbox.style.display = 'none';
+                            break;
+                    }
+                }
+            });
+
+            // Language Selector
+            const languageCurrent = document.getElementById('languageCurrent');
+            const languageDropdown = document.getElementById('languageDropdown');
+            const languageOptions = document.querySelectorAll('.language-option');
+
+            // Translation data
+            const translations = {
+                en: {
+                    nav_overview: "Overview",
+                    nav_specifications: "Specifications", 
+                    nav_gallery: "Gallery",
+                    nav_contact: "Contact",
+                    hero_title: "PRINCESS TOO",
+                    hero_subtitle: "47.55m Feadship Motor Yacht",
+                    hero_button: "View Details",
+                    overview_title: "Overview",
+                    overview_p1: "Princess Too is a distinguished 47.55-meter luxury motor yacht built by the renowned Dutch shipyard Feadship in 1999. This exceptional vessel represents the pinnacle of yacht craftsmanship, featuring exterior design by De Voogt Naval Architects and interior design by Sam Sorgiovanni.",
+                    overview_p2: "Originally known as Excellence II, Princess Too has undergone comprehensive refits in 2006, 2014, and 2017, ensuring she maintains the highest standards of luxury and performance. With her steel hull and aluminum superstructure, she offers both elegance and durability for discerning yacht enthusiasts.",
+                    overview_p3: "The yacht accommodates up to 12 guests in 6 luxurious suites, including a master stateroom with Jacuzzi, one VIP cabin, and four twin guest cabins. A professional crew of 10 ensures an exceptional level of service throughout your voyage.",
+                    specs_title: "Specifications",
+                    gallery_title: "Gallery",
+                    load_more_specs: "Load More Specifications"
+                },
+                ru: {
+                    nav_overview: "Обзор",
+                    nav_specifications: "Характеристики",
+                    nav_gallery: "Галерея",
+                    nav_contact: "Контакты",
+                    hero_title: "PRINCESS TOO",
+                    hero_subtitle: "47.55м Моторная яхта Feadship",
+                    hero_button: "Подробнее",
+                    overview_title: "Обзор",
+                    overview_p1: "Princess Too - это выдающаяся 47,55-метровая роскошная моторная яхта, построенная знаменитой голландской верфью Feadship в 1999 году. Это исключительное судно представляет вершину яхтенного мастерства с внешним дизайном от De Voogt Naval Architects и интерьером от Sam Sorgiovanni.",
+                    overview_p2: "Первоначально известная как Excellence II, Princess Too прошла комплексные ремонты в 2006, 2014 и 2017 годах, обеспечивая поддержание высочайших стандартов роскоши и производительности. Со стальным корпусом и алюминиевой надстройкой она предлагает элегантность и долговечность для взыскательных яхтенных энтузиастов.",
+                    overview_p3: "Яхта размещает до 12 гостей в 6 роскошных каютах, включая главную каюту с джакузи, одну VIP-каюту и четыре двухместные гостевые каюты. Профессиональный экипаж из 10 человек обеспечивает исключительный уровень сервиса на протяжении всего вашего путешествия.",
+                    specs_title: "Характеристики",
+                    gallery_title: "Галерея",
+                    load_more_specs: "Загрузить больше характеристик"
+                },
+                de: {
+                    nav_overview: "Überblick",
+                    nav_specifications: "Spezifikationen",
+                    nav_gallery: "Galerie",
+                    nav_contact: "Kontakt",
+                    hero_title: "PRINCESS TOO",
+                    hero_subtitle: "47.55m Feadship Motoryacht",
+                    hero_button: "Details ansehen",
+                    overview_title: "Überblick",
+                    overview_p1: "Princess Too ist eine außergewöhnliche 47,55 Meter lange Luxus-Motoryacht, die 1999 von der renommierten niederländischen Werft Feadship gebaut wurde. Dieses außergewöhnliche Schiff repräsentiert den Höhepunkt der Yachtbaukunst mit Außendesign von De Voogt Naval Architects und Innendesign von Sam Sorgiovanni.",
+                    overview_p2: "Ursprünglich als Excellence II bekannt, hat Princess Too umfassende Refits in 2006, 2014 und 2017 durchlaufen und dabei höchste Standards für Luxus und Leistung beibehalten. Mit ihrem Stahlrumpf und Aluminiumaufbau bietet sie Eleganz und Haltbarkeit für anspruchsvolle Yacht-Enthusiasten.",
+                    overview_p3: "Die Yacht beherbergt bis zu 12 Gäste in 6 luxuriösen Suiten, einschließlich einer Hauptkabine mit Whirlpool, einer VIP-Kabine und vier Doppelkabinen. Eine professionelle Crew von 10 Personen sorgt für außergewöhnlichen Service während Ihrer Reise.",
+                    specs_title: "Spezifikationen",
+                    gallery_title: "Galerie",
+                    load_more_specs: "Weitere Spezifikationen laden"
+                },
+                es: {
+                    nav_overview: "Descripción",
+                    nav_specifications: "Especificaciones",
+                    nav_gallery: "Galería",
+                    nav_contact: "Contacto",
+                    hero_title: "PRINCESS TOO",
+                    hero_subtitle: "Yate Motor Feadship de 47.55m",
+                    hero_button: "Ver Detalles",
+                    overview_title: "Descripción",
+                    overview_p1: "Princess Too es un distinguido yate motor de lujo de 47,55 metros construido por el renombrado astillero holandés Feadship en 1999. Esta embarcación excepcional representa la cúspide de la artesanía náutica, con diseño exterior de De Voogt Naval Architects y diseño interior de Sam Sorgiovanni.",
+                    overview_p2: "Originalmente conocido como Excellence II, Princess Too ha sido sometido a reformas integrales en 2006, 2014 y 2017, asegurando que mantenga los más altos estándares de lujo y rendimiento. Con su casco de acero y superestructura de aluminio, ofrece elegancia y durabilidad para entusiastas náuticos exigentes.",
+                    overview_p3: "El yate acomoda hasta 12 huéspedes en 6 suites lujosas, incluyendo una suite principal con jacuzzi, una cabina VIP y cuatro cabinas dobles para huéspedes. Una tripulación profesional de 10 personas asegura un nivel excepcional de servicio durante su viaje.",
+                    specs_title: "Especificaciones",
+                    gallery_title: "Galería",
+                    load_more_specs: "Cargar más especificaciones"
+                },
+                hi: {
+                    nav_overview: "अवलोकन",
+                    nav_specifications: "विशेषताएं",
+                    nav_gallery: "गैलरी",
+                    nav_contact: "संपर्क",
+                    hero_title: "PRINCESS TOO",
+                    hero_subtitle: "47.55मी फीडशिप मोटर नौका",
+                    hero_button: "विवरण देखें",
+                    overview_title: "अवलोकन",
+                    overview_p1: "Princess Too एक प्रतिष्ठित 47.55-मीटर लक्जरी मोटर नौका है जो प्रसिद्ध डच शिपयार्ड फीडशिप द्वारा 1999 में निर्मित की गई थी। यह असाधारण पोत नौका शिल्पकारी के शिखर का प्रतिनिधित्व करता है, जिसमें डी वूगट नेवल आर्किटेक्ट्स की बाहरी डिजाइन और सैम सोर्जियोवानी की आंतरिक डिजाइन है।",
+                    overview_p2: "मूल रूप से एक्सीलेंस II के नाम से जानी जाने वाली, Princess Too ने 2006, 2014 और 2017 में व्यापक रीफिट्स किए हैं, यह सुनिश्चित करते हुए कि यह लक्जरी और प्रदर्शन के उच्चतम मानकों को बनाए रखे। अपनी स्टील हल और एल्यूमीनियम सुपरस्ट्रक्चर के साथ, यह नौका प्रेमियों के लिए elegance और स्थायित्व प्रदान करती है।",
+                    overview_p3: "नौका 6 लक्जरी सूट्स में 12 मेहमानों को समायोजित करती है, जिसमें जकूजी के साथ मास्टर स्टेटरूम, एक VIP केबिन और चार ट्विन गेस्ट केबिन शामिल हैं। 10 लोगों का पेशेवर चालक दल आपकी यात्रा के दौरान असाधारण स्तर की सेवा सुनिश्चित करता है।",
+                    specs_title: "विशेषताएं",
+                    gallery_title: "गैलरी",
+                    load_more_specs: "अधिक विशेषताएं लोड करें"
+                }
+            };
+
+            let currentLanguage = 'en';
+
+            function updateLanguage(lang) {
+                currentLanguage = lang;
+                const langData = translations[lang];
+                
+                // Update all elements with data-translate attributes
+                document.querySelectorAll('[data-translate]').forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (langData[key]) {
+                        element.textContent = langData[key];
+                    }
+                });
+
+                // Update language selector display
+                const languageFlags = {
+                    en: { flag: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDEyMzY5Ii8+CjxyZWN0IHk9IjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB5PSIxMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IiNDRTExMjYiLz4KPC9zdmc+", code: "EN" },
+                    ru: { flag: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHk9IjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiBmaWxsPSIjMDA1MkI0Ii8+CjxyZWN0IHk9IjEwIiB3aWR0aD0iMjAiIGhlaWdodD0iNSIgZmlsbD0iI0Q1MjgxOCIvPgo8L3N2Zz4=", code: "RU" },
+                    de: { flag: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IiMwMDAiLz4KPHJlY3QgeT0iNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IiNERAAwMDAiLz4KPHJlY3QgeT0iMTAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiBmaWxsPSIjRkZEOTAwIi8+Cjwvc3ZnPg==", code: "DE" },
+                    es: { flag: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjMiIGZpbGw9IiNEUzI4MTgiLz4KPHJlY3QgeT0iMyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjkiIGZpbGw9IiNGRkRBMDAiLz4KPHJlY3QgeT0iMTIiIHdpZHRoPSIyMCIgaGVpZ2h0PSIzIiBmaWxsPSIjRDUyODE4Ii8+Cjwvc3ZnPg==", code: "ES" },
+                    hi: { flag: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IiNGRjk5MzMiLz4KPHJlY3QgeT0iNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHk9IjEwIiB3aWR0aD0iMjAiIGhlaWdodD0iNSIgZmlsbD0iIzEzOEEwOCIvPgo8L3N2Zz4=", code: "HI" }
+                };
+
+                const currentFlag = languageFlags[lang];
+                const currentFlagImg = languageCurrent.querySelector('.language-flag');
+                const currentText = languageCurrent.querySelector('.language-text');
+                
+                if (currentFlag && currentFlagImg && currentText) {
+                    currentFlagImg.src = currentFlag.flag;
+                    currentText.textContent = currentFlag.code;
+                }
+
+                // Update active state in dropdown
+                languageOptions.forEach(option => {
+                    option.classList.remove('active');
+                    if (option.getAttribute('data-lang') === lang) {
+                        option.classList.add('active');
+                    }
+                });
+
+                // Close dropdown
+                languageDropdown.classList.remove('active');
+                languageCurrent.querySelector('.language-arrow').style.transform = 'rotate(0deg)';
+            }
+
+            // Language selector toggle
+            languageCurrent.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isActive = languageDropdown.classList.contains('active');
+                
+                if (isActive) {
+                    languageDropdown.classList.remove('active');
+                    languageCurrent.querySelector('.language-arrow').style.transform = 'rotate(0deg)';
+                } else {
+                    languageDropdown.classList.add('active');
+                    languageCurrent.querySelector('.language-arrow').style.transform = 'rotate(180deg)';
+                }
+            });
+
+            // Language option selection
+            languageOptions.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const selectedLang = option.getAttribute('data-lang');
+                    updateLanguage(selectedLang);
+                });
+            });
+
+            // Close language dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!languageCurrent.contains(e.target) && !languageDropdown.contains(e.target)) {
+                    languageDropdown.classList.remove('active');
+                    languageCurrent.querySelector('.language-arrow').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Initialize with English
+            updateLanguage('en');
+
+            // Load More Specifications functionality
+            const loadMoreBtn = document.getElementById('loadMoreSpecs');
+            const detailedSpecs = document.getElementById('detailedSpecs');
+            let specsExpanded = false;
+
+            if (loadMoreBtn && detailedSpecs) {
+                loadMoreBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Load more button clicked, current state:', specsExpanded);
+                    
+                    if (!specsExpanded) {
+                        detailedSpecs.classList.add('active');
+                        loadMoreBtn.textContent = translations[currentLanguage].hide_specs || 'Hide Specifications';
+                        specsExpanded = true;
+                        console.log('Showing detailed specs');
+                        
+                        // Smooth scroll to detailed specs after animation starts
+                        setTimeout(() => {
+                            detailedSpecs.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }, 200);
+                    } else {
+                        detailedSpecs.classList.remove('active');
+                        loadMoreBtn.textContent = translations[currentLanguage].load_more_specs || 'Load More Specifications';
+                        specsExpanded = false;
+                        console.log('Hiding detailed specs');
+                        
+                        // Scroll back to the specifications section
+                        setTimeout(() => {
+                            document.getElementById('specifications').scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }, 100);
+                    }
+                });
+            } else {
+                console.error('Load more button or detailed specs not found');
+            }
+
+            // Update load more button text when language changes
+            function updateLoadMoreButton() {
+                if (loadMoreBtn) {
+                    if (specsExpanded) {
+                        loadMoreBtn.textContent = translations[currentLanguage].hide_specs || 'Hide Specifications';
+                    } else {
+                        loadMoreBtn.textContent = translations[currentLanguage].load_more_specs || 'Load More Specifications';
+                    }
+                }
+            }
+
+            // Update the updateLanguage function to also update the button
+            const originalUpdateLanguage = updateLanguage;
+            updateLanguage = function(lang) {
+                originalUpdateLanguage(lang);
+                updateLoadMoreButton();
+            };
+
+            // Add hide_specs translations
+            translations.en.hide_specs = "Hide Specifications";
+            translations.ru.hide_specs = "Скрыть характеристики";
+            translations.de.hide_specs = "Spezifikationen ausblenden";
+            translations.es.hide_specs = "Ocultar especificaciones";
+            translations.hi.hide_specs = "विशेषताएं छुपाएं";
+                
         });
     </script>
 </body>
