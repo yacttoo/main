@@ -264,37 +264,78 @@
         /* Specifications Grid */
         .specs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
             margin-top: 3rem;
+            perspective: 1000px;
         }
 
         .spec-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border: 1px solid #e8e8e8;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            padding: 1.8rem 1.5rem;
+            border: none;
             text-align: center;
+            border-radius: 12px;
+            box-shadow: 
+                8px 8px 16px rgba(0, 0, 0, 0.1),
+                -8px -8px 16px rgba(255, 255, 255, 0.9),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.8);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spec-card:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 
+                12px 20px 25px rgba(0, 0, 0, 0.15),
+                -4px -4px 8px rgba(255, 255, 255, 0.9),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.9);
+        }
+
+        .spec-card:nth-child(even):hover {
+            transform: translateY(-8px) rotateX(-5deg);
         }
 
         .spec-card h3 {
             color: #2c3e50;
             margin-bottom: 1rem;
-            font-size: 1.1rem;
-            font-weight: 400;
-            letter-spacing: 1px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .spec-card:hover h3 {
+            color: #3498db;
         }
 
         .spec-value {
-            font-size: 2.5rem;
-            font-weight: 300;
+            font-size: 2.2rem;
+            font-weight: 700;
             color: #34495e;
             margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .spec-card:hover .spec-value {
+            color: #2c3e50;
+            transform: scale(1.05);
         }
 
         .spec-card p {
             color: #7f8c8d;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 0.5px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .spec-card:hover p {
+            color: #5d6d7e;
         }
 
         /* Load More Button */
@@ -665,7 +706,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1 data-translate="hero_title">PRINCESS TOO</h1>
-            <p data-translate="hero_subtitle">48.00 Feadship Motor Yacht</p>
+            <p data-translate="hero_subtitle">48m Feadship Motor Yacht</p>
             <a href="#overview" class="btn" data-translate="hero_button">View Details</a>
         </div>
     </section>
@@ -674,260 +715,11 @@
         <div class="container">
             <h2 class="section-title" data-translate="overview_title">Overview</h2>
             <div class="about-text">
-                <p data-translate="overview_p1">Princess Too is a distinguished 47.55-meter luxury motor yacht built by the renowned Dutch shipyard Feadship in 1999. This exceptional vessel represents the pinnacle of yacht craftsmanship, featuring exterior design by De Voogt Naval Architects and interior design by Sam Sorgiovanni.</p>
+                <p data-translate="overview_p1">Princess Too is a distinguished 48-meter luxury motor yacht built by the renowned Dutch shipyard Feadship in 1999. This exceptional vessel represents the pinnacle of yacht craftsmanship, featuring exterior design by De Voogt Naval Architects and interior design by Sam Sorgiovanni.</p>
                 
                 <p data-translate="overview_p2">Originally known as Excellence II, Princess Too has undergone comprehensive refits in 2006, 2014, and 2017, ensuring she maintains the highest standards of luxury and performance. With her steel hull and aluminum superstructure, she offers both elegance and durability for discerning yacht enthusiasts.</p>
                 
                 <p data-translate="overview_p3">The yacht accommodates up to 12 guests in 6 luxurious suites, including a master stateroom with Jacuzzi, one VIP cabin, and four twin guest cabins. A professional crew of 10 ensures an exceptional level of service throughout your voyage.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="specifications" class="section">
-        <div class="container">
-            <h2 class="section-title" data-translate="specs_title">Specifications</h2>
-            <div class="specs-grid">
-                <div class="spec-card">
-                    <h3>Length Overall</h3>
-                    <div class="spec-value">48.00</div>
-                    <p>156'1" feet</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Beam</h3>
-                    <div class="spec-value">9m</div>
-                    <p>29 feet</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Draft</h3>
-                    <div class="spec-value">3.2m</div>
-                    <p>10'6" feet</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Gross Tonnage</h3>
-                    <div class="spec-value">552</div>
-                    <p>GT</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Maximum Speed</h3>
-                    <div class="spec-value">17</div>
-                    <p>knots</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Cruising Speed</h3>
-                    <div class="spec-value">12.5</div>
-                    <p>knots</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Range</h3>
-                    <div class="spec-value">5.000</div>
-                    <p>nautical miles</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Fuel Capacity</h3>
-                    <div class="spec-value">67,750</div>
-                    <p>liters</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Guest Capacity</h3>
-                    <div class="spec-value">12</div>
-                    <p>in 6 suites</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Crew</h3>
-                    <div class="spec-value">10</div>
-                    <p>professional crew</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Year Built</h3>
-                    <div class="spec-value">1999</div>
-                    <p>Feadship</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Last Refit</h3>
-                    <div class="spec-value">2017</div>
-                    <p>Complete renovation</p>
-                </div>
-            </div>
-            
-            <div class="specs-actions">
-                <button class="load-more-btn" id="loadMoreSpecs" data-translate="load_more_specs">Load More Specifications</button>
-            </div>
-
-            <!-- Detailed Specifications (Hidden by default) -->
-            <div class="detailed-specs" id="detailedSpecs">
-                <h3 class="detailed-specs-title">Princess Too Yacht Specifications</h3>
-                
-                <div class="specs-section">
-                    <h4>Dimensions</h4>
-                    <div class="specs-row">
-                        <span class="specs-label">Overall Length</span>
-                        <span class="specs-value">47.55 m</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Beam</span>
-                        <span class="specs-value">8.9 m</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Draught Max.</span>
-                        <span class="specs-value">2.9 m</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Gross Tonnage</span>
-                        <span class="specs-value">552</span>
-                    </div>
-                </div>
-
-                <div class="specs-section">
-                    <h4>Build</h4>
-                    <div class="specs-row">
-                        <span class="specs-label">Builder</span>
-                        <span class="specs-value">Feadship</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Port</span>
-                        <span class="specs-value">Kaag</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Country</span>
-                        <span class="specs-value">Netherlands</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Year</span>
-                        <span class="specs-value">1999</span>
-                    </div>
-                </div>
-
-                <div class="specs-section">
-                    <h4>Material</h4>
-                    <div class="specs-row">
-                        <span class="specs-label">Hull</span>
-                        <span class="specs-value">Steel</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Superstructure</span>
-                        <span class="specs-value">Aluminium</span>
-                    </div>
-                </div>
-
-                <div class="specs-section">
-                    <h4>Design</h4>
-                    <div class="specs-row">
-                        <span class="specs-label">Naval</span>
-                        <span class="specs-value">De Voogt Naval Architects</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Exterior</span>
-                        <span class="specs-value">De Voogt Naval Architects, Sam Sorgiovanni Designs P/L</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Interior</span>
-                        <span class="specs-value">Sam Sorgiovanni Designs P/L</span>
-                    </div>
-                </div>
-
-                <div class="specs-section">
-                    <h4>Vessel Details</h4>
-                    <div class="specs-row">
-                        <span class="specs-label">Previous Names</span>
-                        <span class="specs-value">Princess K, D'Natalin II, Excellence II, Princess K II</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Type</span>
-                        <span class="specs-value">Motor</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Sub Types</span>
-                        <span class="specs-value">N/A</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Class</span>
-                        <span class="specs-value">RINA</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Hull Type</span>
-                        <span class="specs-value">Mono Hull</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Hull Configuration</span>
-                        <span class="specs-value">Displacement</span>
-                    </div>
-                </div>
-
-                <div class="specs-section">
-                    <h4>Accommodation</h4>
-                    <div class="specs-row">
-                        <span class="specs-label">Number of Guests</span>
-                        <span class="specs-value">12</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Number of Crew</span>
-                        <span class="specs-value">10</span>
-                    </div>
-                </div>
-
-                <div class="specs-section">
-                    <h4>Performance & Capabilities</h4>
-                    <div class="specs-row">
-                        <span class="specs-label">Max. Speed</span>
-                        <span class="specs-value">14.6 kn</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Cruise Speed</span>
-                        <span class="specs-value">13.5 kn</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Speed/Range</span>
-                        <span class="specs-value">4500 n/M</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Fuel Capacity</span>
-                        <span class="specs-value">68,000 L</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Water Capacity</span>
-                        <span class="specs-value">21,500 L</span>
-                    </div>
-                </div>
-
-                <div class="specs-section">
-                    <h4>Propulsion</h4>
-                    <div class="specs-row">
-                        <span class="specs-label">Type</span>
-                        <span class="specs-value">Propellers</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Count</span>
-                        <span class="specs-value">2</span>
-                    </div>
-                </div>
-
-                <div class="specs-section">
-                    <h4>Engines</h4>
-                    <div class="specs-row">
-                        <span class="specs-label">Manufacturer</span>
-                        <span class="specs-value">Caterpillar Inc</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Model</span>
-                        <span class="specs-value">3508B DITA</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Type</span>
-                        <span class="specs-value">Diesel</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Power</span>
-                        <span class="specs-value">675 kW | 905 HP</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Count</span>
-                        <span class="specs-value">2</span>
-                    </div>
-                    <div class="specs-row">
-                        <span class="specs-label">Total Power Output</span>
-                        <span class="specs-value">1,350 kW | 1,810 HP</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1066,6 +858,255 @@
 
                 <div class="gallery-item">
                     <img src="https://yachtharbour.com/static/uploads/scale_1075_801db.jpg" alt="Princess Too Complete View">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specifications" class="section">
+        <div class="container">
+            <h2 class="section-title" data-translate="specs_title">Specifications</h2>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <h3>Length Overall</h3>
+                    <div class="spec-value">48m</div>
+                    <p>157'5" feet</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Beam</h3>
+                    <div class="spec-value">8.9m</div>
+                    <p>29 feet</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Draft</h3>
+                    <div class="spec-value">3.2m</div>
+                    <p>10'6" feet</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Gross Tonnage</h3>
+                    <div class="spec-value">552</div>
+                    <p>GT</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Maximum Speed</h3>
+                    <div class="spec-value">17</div>
+                    <p>knots</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Cruising Speed</h3>
+                    <div class="spec-value">12.5</div>
+                    <p>knots</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Range</h3>
+                    <div class="spec-value">4,500</div>
+                    <p>nautical miles</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Fuel Capacity</h3>
+                    <div class="spec-value">67,750</div>
+                    <p>liters</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Guest Capacity</h3>
+                    <div class="spec-value">12</div>
+                    <p>in 6 suites</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Crew</h3>
+                    <div class="spec-value">10</div>
+                    <p>professional crew</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Year Built</h3>
+                    <div class="spec-value">1999</div>
+                    <p>Feadship</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Last Refit</h3>
+                    <div class="spec-value">2017</div>
+                    <p>Complete renovation</p>
+                </div>
+            </div>
+            
+            <div class="specs-actions">
+                <button class="load-more-btn" id="loadMoreSpecs" data-translate="load_more_specs">Load More Specifications</button>
+            </div>
+
+            <!-- Detailed Specifications (Hidden by default) -->
+            <div class="detailed-specs" id="detailedSpecs">
+                <h3 class="detailed-specs-title">Princess Too Yacht Specifications</h3>
+                
+                <div class="specs-section">
+                    <h4>Dimensions</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Overall Length</span>
+                        <span class="specs-value">48 m</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Beam</span>
+                        <span class="specs-value">8.9 m</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Draught Max.</span>
+                        <span class="specs-value">2.9 m</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Gross Tonnage</span>
+                        <span class="specs-value">552</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Build</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Builder</span>
+                        <span class="specs-value">Feadship</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Port</span>
+                        <span class="specs-value">Kaag</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Country</span>
+                        <span class="specs-value">Netherlands</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Year</span>
+                        <span class="specs-value">1999</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Material</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Hull</span>
+                        <span class="specs-value">Steel</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Superstructure</span>
+                        <span class="specs-value">Aluminium</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Design</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Naval</span>
+                        <span class="specs-value">De Voogt Naval Architects</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Exterior</span>
+                        <span class="specs-value">De Voogt Naval Architects, Sam Sorgiovanni Designs P/L</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Interior</span>
+                        <span class="specs-value">Sam Sorgiovanni Designs P/L</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Vessel Details</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Previous Names</span>
+                        <span class="specs-value">Princess K, D'Natalin II, Excellence II, Princess K II</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Type</span>
+                        <span class="specs-value">Motor</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Sub Types</span>
+                        <span class="specs-value">N/A</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Class</span>
+                        <span class="specs-value">RINA</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Hull Type</span>
+                        <span class="specs-value">Mono Hull</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Hull Configuration</span>
+                        <span class="specs-value">Displacement</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Accommodation</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Number of Guests</span>
+                        <span class="specs-value">12</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Number of Crew</span>
+                        <span class="specs-value">10</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Performance & Capabilities</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Max. Speed</span>
+                        <span class="specs-value">17 kn</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Cruise Speed</span>
+                        <span class="specs-value">13.5 kn</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Speed/Range</span>
+                        <span class="specs-value">4500 n/M</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Fuel Capacity</span>
+                        <span class="specs-value">68,000 L</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Water Capacity</span>
+                        <span class="specs-value">21,500 L</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Propulsion</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Type</span>
+                        <span class="specs-value">Propellers</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Count</span>
+                        <span class="specs-value">2</span>
+                    </div>
+                </div>
+
+                <div class="specs-section">
+                    <h4>Engines</h4>
+                    <div class="specs-row">
+                        <span class="specs-label">Manufacturer</span>
+                        <span class="specs-value">Caterpillar Inc</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Model</span>
+                        <span class="specs-value">3508B DITA</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Type</span>
+                        <span class="specs-value">Diesel</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Power</span>
+                        <span class="specs-value">675 kW | 905 HP</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Count</span>
+                        <span class="specs-value">2</span>
+                    </div>
+                    <div class="specs-row">
+                        <span class="specs-label">Total Power Output</span>
+                        <span class="specs-value">1,350 kW | 1,810 HP</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1237,10 +1278,10 @@
                     nav_gallery: "Gallery",
                     nav_contact: "Contact",
                     hero_title: "PRINCESS TOO",
-                    hero_subtitle: "48.00 Feadship Motor Yacht",
+                    hero_subtitle: "48m Feadship Motor Yacht",
                     hero_button: "View Details",
                     overview_title: "Overview",
-                    overview_p1: "Princess Too is a distinguished 47.55-meter luxury motor yacht built by the renowned Dutch shipyard Feadship in 1999. This exceptional vessel represents the pinnacle of yacht craftsmanship, featuring exterior design by De Voogt Naval Architects and interior design by Sam Sorgiovanni.",
+                    overview_p1: "Princess Too is a distinguished 48-meter luxury motor yacht built by the renowned Dutch shipyard Feadship in 1999. This exceptional vessel represents the pinnacle of yacht craftsmanship, featuring exterior design by De Voogt Naval Architects and interior design by Sam Sorgiovanni.",
                     overview_p2: "Originally known as Excellence II, Princess Too has undergone comprehensive refits in 2006, 2014, and 2017, ensuring she maintains the highest standards of luxury and performance. With her steel hull and aluminum superstructure, she offers both elegance and durability for discerning yacht enthusiasts.",
                     overview_p3: "The yacht accommodates up to 12 guests in 6 luxurious suites, including a master stateroom with Jacuzzi, one VIP cabin, and four twin guest cabins. A professional crew of 10 ensures an exceptional level of service throughout your voyage.",
                     specs_title: "Specifications",
@@ -1253,10 +1294,10 @@
                     nav_gallery: "Галерея",
                     nav_contact: "Контакты",
                     hero_title: "PRINCESS TOO",
-                    hero_subtitle: "47.55м Моторная яхта Feadship",
+                    hero_subtitle: "48м Моторная яхта Feadship",
                     hero_button: "Подробнее",
                     overview_title: "Обзор",
-                    overview_p1: "Princess Too - это выдающаяся 47,55-метровая роскошная моторная яхта, построенная знаменитой голландской верфью Feadship в 1999 году. Это исключительное судно представляет вершину яхтенного мастерства с внешним дизайном от De Voogt Naval Architects и интерьером от Sam Sorgiovanni.",
+                    overview_p1: "Princess Too - это выдающаяся 48-метровая роскошная моторная яхта, построенная знаменитой голландской верфью Feadship в 1999 году. Это исключительное судно представляет вершину яхтенного мастерства с внешним дизайном от De Voogt Naval Architects и интерьером от Sam Sorgiovanni.",
                     overview_p2: "Первоначально известная как Excellence II, Princess Too прошла комплексные ремонты в 2006, 2014 и 2017 годах, обеспечивая поддержание высочайших стандартов роскоши и производительности. Со стальным корпусом и алюминиевой надстройкой она предлагает элегантность и долговечность для взыскательных яхтенных энтузиастов.",
                     overview_p3: "Яхта размещает до 12 гостей в 6 роскошных каютах, включая главную каюту с джакузи, одну VIP-каюту и четыре двухместные гостевые каюты. Профессиональный экипаж из 10 человек обеспечивает исключительный уровень сервиса на протяжении всего вашего путешествия.",
                     specs_title: "Характеристики",
@@ -1269,10 +1310,10 @@
                     nav_gallery: "Galerie",
                     nav_contact: "Kontakt",
                     hero_title: "PRINCESS TOO",
-                    hero_subtitle: "48.00 Feadship Motoryacht",
+                    hero_subtitle: "47.55m Feadship Motoryacht",
                     hero_button: "Details ansehen",
                     overview_title: "Überblick",
-                    overview_p1: "Princess Too ist eine außergewöhnliche 47,55 Meter lange Luxus-Motoryacht, die 1999 von der renommierten niederländischen Werft Feadship gebaut wurde. Dieses außergewöhnliche Schiff repräsentiert den Höhepunkt der Yachtbaukunst mit Außendesign von De Voogt Naval Architects und Innendesign von Sam Sorgiovanni.",
+                    overview_p1: "Princess Too ist eine außergewöhnliche 48 Meter lange Luxus-Motoryacht, die 1999 von der renommierten niederländischen Werft Feadship gebaut wurde. Dieses außergewöhnliche Schiff repräsentiert den Höhepunkt der Yachtbaukunst mit Außendesign von De Voogt Naval Architects und Innendesign von Sam Sorgiovanni.",
                     overview_p2: "Ursprünglich als Excellence II bekannt, hat Princess Too umfassende Refits in 2006, 2014 und 2017 durchlaufen und dabei höchste Standards für Luxus und Leistung beibehalten. Mit ihrem Stahlrumpf und Aluminiumaufbau bietet sie Eleganz und Haltbarkeit für anspruchsvolle Yacht-Enthusiasten.",
                     overview_p3: "Die Yacht beherbergt bis zu 12 Gäste in 6 luxuriösen Suiten, einschließlich einer Hauptkabine mit Whirlpool, einer VIP-Kabine und vier Doppelkabinen. Eine professionelle Crew von 10 Personen sorgt für außergewöhnlichen Service während Ihrer Reise.",
                     specs_title: "Spezifikationen",
@@ -1285,7 +1326,7 @@
                     nav_gallery: "Galería",
                     nav_contact: "Contacto",
                     hero_title: "PRINCESS TOO",
-                    hero_subtitle: "Yate Motor Feadship de 48.00",
+                    hero_subtitle: "Yate Motor Feadship de 48m",
                     hero_button: "Ver Detalles",
                     overview_title: "Descripción",
                     overview_p1: "Princess Too es un distinguido yate motor de lujo de 47,55 metros construido por el renombrado astillero holandés Feadship en 1999. Esta embarcación excepcional representa la cúspide de la artesanía náutica, con diseño exterior de De Voogt Naval Architects y diseño interior de Sam Sorgiovanni.",
